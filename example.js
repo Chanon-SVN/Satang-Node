@@ -6,7 +6,9 @@ let result = api.buyLimitOrder('algo_thb', 1, 8)
 console.log(result);
 
 // Example of web soccket 
-ws.on('message', function incoming(data) {
-  console.log(data);
+let wss = ws.setup('btc_thb').then(res=>{
+  res.on('message', function incoming(data) {
+    console.log(data);
+  })
 });
 

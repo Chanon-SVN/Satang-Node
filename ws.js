@@ -1,7 +1,11 @@
 const WebSocket = require('ws')
-const ws = new WebSocket('wss://stream.satang.com/ws/algo_thb@aggTrade', {
-  perMessageDeflate: false
-});
 
-module.exports = ws
+exports.setup = async(pair) => {
+  console.log(pair);
+  const wss = await new WebSocket('wss://stream.satang.com/ws/'+pair+'@aggTrade', {
+    perMessageDeflate: false
+  });
+
+  return await wss;
+}
 

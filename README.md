@@ -1,4 +1,4 @@
-# Usage examples
+# Example Usage
 
 **Order Creation**
 ```
@@ -11,9 +11,9 @@ console.log(result);
 
 **Web Socket**
 ~~~
-const  ws  =  require('./ws')
-
-ws.on('message', function incoming(data) {
-console.log(data);
+let wss = ws.setup('btc_thb').then(res=>{
+  res.on('message', function incoming(data) {
+    console.log(data);
+  })
 });
 ~~~
